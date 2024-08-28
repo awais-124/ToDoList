@@ -18,17 +18,27 @@ export class TaskManager {
   }
 
   static DeleteTask(id){
-    TaskManager.taskList.splice(id);
+    TaskManager.taskList = TaskManager.taskList.filter(
+                            item => item.id !== id);
+  }
 
+  static CompleteTask(id,status){
+   let obj = TaskManager.taskList.find(item => item.id === id);
+   if(obj)
+    obj.isCompleted = status;
+   
+  
+    
   }
 }
 
-TaskManager.createTask(1,"play", "low", new Date(2016, 0, 11),"falsefds"); 
-TaskManager.createTask(2,"play", "low", new Date(2015, 0, 11),true); 
-TaskManager.createTask(3,"play", "low", new Date(2014, 0, 11),true); 
+TaskManager.createTask(1,"play", "low", new Date(2016, 1, 11),true); 
+TaskManager.createTask(2,"play", "low", new Date(2015, 1, 11),false); 
+TaskManager.createTask(3,"play", "low", new Date(2014, 1, 11),false); 
 
 
-TaskManager.sortTasks();
+
+
 
 
 TaskManager.printTasks();
