@@ -3,9 +3,9 @@ import { Task } from "./Task.js ";
 
 export class TaskManager {
   static taskList = [];
-
-  static createTask(id,title, priority, dueDate, isCompleted) {
-    const obj = new Task(id,title, priority, dueDate,isCompleted);
+  
+  static createTask(id,title, priority, dueDate, isCompleted, description) {
+    const obj = new Task(id,title, priority, dueDate,isCompleted, description);
     TaskManager.taskList.push(obj);
   }
 
@@ -32,10 +32,9 @@ export class TaskManager {
   }
 }
 
-TaskManager.createTask(1,"play", "low", new Date(2016, 1, 11),true); 
-TaskManager.createTask(2,"play", "low", new Date(2015, 1, 11),false); 
-TaskManager.createTask(3,"play", "low", new Date(2014, 1, 11),false); 
-
+TaskManager.createTask(1,"play", "low", new Date(2016, 1, 11),true,'This is task 1 description'); 
+TaskManager.createTask(2,"play", "low", new Date(2015, 1, 11),false,'This is task 2 description'); 
+TaskManager.createTask(3,"play", "low", new Date(2014, 1, 11),false,'This is task 3 description')
 
 
 
